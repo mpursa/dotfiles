@@ -1,0 +1,8 @@
+[user]
+    name = mpursa
+    email = mirco.pretto@autosupermarket.it
+    signingkey = ~/.ssh/id_ed25519.pub
+[commit]
+    gpgsign = true
+[tag]
+    gpgsign = true

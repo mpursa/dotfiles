@@ -1,0 +1,16 @@
+[include]
+    path = ~/.config/git/identity
+[include]
+    path = ~/.config/git/config.local
+
+[init]
+    defaultBranch = main
+[core]
+    editor = nvim
+[gpg]
+    format = ssh
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true

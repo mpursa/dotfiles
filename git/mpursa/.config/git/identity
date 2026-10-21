@@ -1,0 +1,8 @@
+[user]
+    name = mpursa
+    email = m.pretto93@gmail.com
+    signingkey = ~/.ssh/id_ed25519.pub
+[commit]
+    gpgsign = true
+[tag]
+    gpgsign = true
