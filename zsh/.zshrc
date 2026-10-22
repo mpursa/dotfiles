@@ -1,3 +1,7 @@
+# EDITOR=nvim would otherwise make zsh pick the vi keymap (no Ctrl-R search);
+# set before compinit, which binds its widgets into the current keymap
+bindkey -e
+
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
