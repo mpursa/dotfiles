@@ -15,9 +15,11 @@ alias vim='nvim'
 
 # tmux
 alias tm='tmux'
-alias tma='tmux new -A -s main'
+alias tma='tmux attach -t'
+alias tmn='tmux new -s'
+alias tman='tmux new -A -s'
 alias tml='tmux ls'
-alias tk='tmux kill-session -t'
+alias tmk='tmux kill-session -t'
 
 # ls
 alias ll='ls -lAh'
