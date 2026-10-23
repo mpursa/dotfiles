@@ -19,3 +19,53 @@
     path = ~/.config/git/config.local
 [push]
 	autoSetupRemote = true
+[alias]
+    st = status -sb
+    co = checkout
+    sw = switch
+    br = branch
+
+    # Add
+    a = add
+    aa = add --all
+    ap = add --patch
+    au = add --update
+    ai = add --interactive
+    an = add --intent-to-add
+
+    # Commit
+    ci = commit
+    cm = commit -m
+    ca = commit --amend
+    can = commit --amend --no-edit
+
+    # Logs
+    lg = log --oneline --graph --decorate --all
+    last = log -1 HEAD --stat
+    hist = log --pretty=format:'%C(yellow)%h%Creset %ad %C(cyan)%an%Creset %s%C(auto)%d' --date=short
+
+    # Restore
+    unstage = restore --staged
+    us = restore --staged
+    unstage-all = restore --staged .
+
+    # Diffs
+    df = diff
+    dc = diff --cached
+    ds = diff --stat
+
+    # Undo / cleanup
+    unstage = restore --staged
+    undo = reset --soft HEAD~1
+    discard = restore
+
+    # Branch housekeeping
+    recent = branch --sort=-committerdate --format='%(committerdate:relative)%09%(refname:short)'
+    gone = "!git fetch -p && git branch -vv | awk '/: gone]/{print $1}'"
+
+    # Remote work
+    pf = push --force-with-lease
+    up = pull --rebase --autostash
+
+    # Meta
+    aliases = config --get-regexp ^alias\\.
