@@ -18,8 +18,10 @@ compinit
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
 # chrome debugger alias
 alias chrome-debug='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-dir="$HOME/.chrome-debug-profile" &'
+
 # symfony-lsp
 export PATH="$HOME/.local/share/symfony-lsp:$PATH"
 
@@ -38,3 +40,5 @@ fi
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
+
+[ -f ~/.config/shell/common.sh ] && source ~/.config/shell/common.sh
