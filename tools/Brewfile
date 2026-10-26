@@ -1,0 +1,14 @@
+# Tools the dotfiles use, for the Mac and Bazzite: brew bundle --file=~/dotfiles/tools/Brewfile
+# The tmux plugin manager isn't a brew package:
+#   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+brew "stow"
+brew "neovim"
+brew "tmux"
+brew "starship"
+brew "ripgrep"
+brew "bat"
+brew "git-lfs"
+
+cask "iterm2" if OS.mac?
+cask "font-jetbrains-mono-nerd-font"
