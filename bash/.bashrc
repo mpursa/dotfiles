@@ -121,6 +121,9 @@ if [ -f ~/.config/shell/common.sh ]; then
     . ~/.config/shell/common.sh
 fi
 
+# starship prompt
+command -v starship >/dev/null 2>&1 && eval "$(starship init bash)"
+
 # machine-specific, untracked: keep last so it can override
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local

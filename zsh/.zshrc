@@ -36,6 +36,9 @@ if [ -f ~/.config/shell/common.sh ]; then
     source ~/.config/shell/common.sh
 fi
 
+# starship prompt
+command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
+
 # machine-specific, untracked: keep last so it can override
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local

@@ -1,0 +1,7 @@
+add_newline = false
+
+[hostname]
+ssh_only = true
+
+[directory]
+truncation_length = 3
