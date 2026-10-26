@@ -9,6 +9,9 @@ esac
 export EDITOR=nvim
 export VISUAL=nvim
 
+# ripgrep: rg errors on every run if this file is missing, so only set it once stowed
+[ -f "$HOME/.config/ripgrep/config" ] && export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
+
 # nvim
 alias v='nvim'
 alias vim='nvim'
