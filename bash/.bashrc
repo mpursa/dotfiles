@@ -8,6 +8,11 @@ case $- in
       *) return;;
 esac
 
+# Fedora: load the system bashrc (Debian's bash does this by itself)
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
