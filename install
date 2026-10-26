@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Usage: ./install [mac|linux]   (default: detected from uname)
+set -euo pipefail
+cd "$(dirname "$0")"
+
+target="${1:-}"
+if [ -z "$target" ]; then
+  case "$(uname -s)" in
+    Darwin) target=mac ;;
+    Linux)  target=linux ;;
+    *) echo "Unknown OS, pass mac or linux" >&2; exit 1 ;;
+  esac
+fi
+
+# Stow would create ~/.ssh with default permissions; SSH keys want 700.
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+
+common=(nvim tmux shell ssh bin starship ripgrep bat)
+
+case "$target" in
+  mac)   packages=("${common[@]}" zsh);  git_identity=asm ;;
+  linux) packages=("${common[@]}" bash); git_identity=mpursa ;;
+  *) echo "Usage: $0 [mac|linux]" >&2; exit 1 ;;
+esac
+
+stow -R "${packages[@]}"
+stow -d git -R shared "$git_identity"
+
+echo "Stowed for $target: ${packages[*]} + git/shared git/$git_identity"

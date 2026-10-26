@@ -1,0 +1,6 @@
+#!/bin/sh
+# Pull the latest dotfiles and restow for this machine
+set -e
+cd "$HOME/dotfiles"
+git pull --ff-only
+./install
