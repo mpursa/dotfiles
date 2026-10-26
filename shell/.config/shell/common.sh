@@ -37,6 +37,11 @@ if ! command -v bat >/dev/null 2>&1 && command -v batcat >/dev/null 2>&1; then
   alias bat='batcat'
 fi
 
+# cat through bat, only where bat is installed
+if command -v bat >/dev/null 2>&1 || command -v batcat >/dev/null 2>&1; then
+  alias cat='bat --paging=never'
+fi
+
 if [[ "$OSTYPE" == darwin* ]]; then
   alias ls='ls -G'
   alias ll='ls -lAGh'
