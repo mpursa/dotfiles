@@ -128,5 +128,3 @@ command -v starship >/dev/null 2>&1 && eval "$(starship init bash)"
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
-
-[ -f ~/.config/shell/common.sh ] && source ~/.config/shell/common.sh

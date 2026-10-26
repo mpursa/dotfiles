@@ -43,5 +43,3 @@ command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
-
-[ -f ~/.config/shell/common.sh ] && source ~/.config/shell/common.sh
