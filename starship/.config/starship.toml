@@ -1,7 +1,12 @@
 add_newline = false
 
+[username]
+show_always = true
+format = "[$user]($style)@"
+
 [hostname]
-ssh_only = true
+ssh_only = false
+format = "[$hostname]($style) in "
 
 [directory]
 truncation_length = 3
