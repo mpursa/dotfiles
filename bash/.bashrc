@@ -119,6 +119,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# ssh-add auth key
+alias sshak='ssh-add ~/.ssh/id_ed25519'
+
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
