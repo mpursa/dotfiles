@@ -47,6 +47,9 @@ command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 # fzf
 [[ -t 0 ]] && command -v fzf >/dev/null 2>&1 && eval "$(fzf --zsh)"
 
+# zoxide
+command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init zsh)"
+
 # machine-specific, untracked: keep last so it can override
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
