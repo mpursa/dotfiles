@@ -9,6 +9,7 @@ brew "starship"
 brew "ripgrep"
 brew "bat"
 brew "git-lfs"
+brew "fzf"
 
 cask "iterm2" if OS.mac?
 cask "font-jetbrains-mono-nerd-font"

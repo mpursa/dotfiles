@@ -44,6 +44,9 @@ fi
 # starship prompt
 command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 
+# fzf
+[[ -t 0 ]] && command -v fzf >/dev/null 2>&1 && eval "$(fzf --zsh)"
+
 # machine-specific, untracked: keep last so it can override
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
