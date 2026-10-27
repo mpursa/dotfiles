@@ -10,6 +10,7 @@ brew "ripgrep"
 brew "bat"
 brew "git-lfs"
 brew "fzf"
+brew "fastfetch" if OS.mac?
 
 cask "iterm2" if OS.mac?
 cask "font-jetbrains-mono-nerd-font"

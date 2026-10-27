@@ -13,5 +13,10 @@ else
   curl -sS https://starship.rs/install.sh | sh -s -- -y -b ~/.local/bin
 fi
 
+# fastfetch is in apt from Debian 13 (trixie)
+if apt-cache show fastfetch >/dev/null 2>&1; then
+  sudo apt install -y fastfetch
+fi
+
 # tmux plugin manager; press Ctrl-a I inside tmux to fetch the plugins
 [ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
