@@ -27,6 +27,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # chrome debugger alias
 alias chrome-debug='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-dir="$HOME/.chrome-debug-profile" &'
 
+# ssh-add auth key
+alias sshak='ssh-add --apple-use-keychain ~/.ssh/id_ed25519'
+
 # symfony-lsp
 export PATH="$HOME/.local/share/symfony-lsp:$PATH"
 

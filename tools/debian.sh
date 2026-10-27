@@ -3,7 +3,7 @@
 set -e
 
 sudo apt update
-sudo apt install -y stow git git-lfs neovim tmux ripgrep bat fzf zoxide curl
+sudo apt install -y stow git git-lfs neovim tmux ripgrep bat fzf zoxide keychain curl
 
 # starship is in apt from Debian 13 (trixie); older releases use the official installer
 if apt-cache show starship >/dev/null 2>&1; then
