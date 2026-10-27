@@ -61,6 +61,8 @@ dotfiles-update
 
 It pulls the repo (`git pull --ff-only`) and runs `./install`, which relinks every package and picks up new files. Open a new terminal for shell changes. `./install` is safe to run at any time, for example after adding a file to a package.
 
+`dotfiles-update` doesn't install tools. When an update adds one to `tools/`, run the installer from step 2 again; it's safe to repeat.
+
 To add a package, create its folder with the paths as they are under `~`, add its name to `common` (or to the `mac` or `linux` line) in `install`, and run `./install`.
 
 iTerm2 saves its settings only when you click Save Now in Settings → General → Settings; then commit `iterm2/`. Saved window arrangements stay out of Git: `tools/iterm2-settings` removes them when the file is staged (see `.gitattributes`).
