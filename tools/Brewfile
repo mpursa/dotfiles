@@ -13,6 +13,7 @@ brew "fzf"
 brew "fastfetch" if OS.mac?
 brew "zoxide"
 brew "git-delta"
+brew "zsh-autosuggestions" if OS.mac?
 
 cask "iterm2" if OS.mac?
 cask "font-jetbrains-mono-nerd-font"
