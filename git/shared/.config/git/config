@@ -18,8 +18,6 @@
 [filter "iterm2"]
     clean = tools/iterm2-settings
 
-[include]
-    path = ~/.config/git/config.local
 [push]
 	autoSetupRemote = true
 [alias]
@@ -74,3 +72,6 @@
 
     # Meta
     aliases = config --get-regexp ^alias\\.
+    
+[include]
+    path = ~/.config/git/config.local
