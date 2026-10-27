@@ -24,6 +24,30 @@ alias tman='tmux new -A -s'
 alias tml='tmux ls'
 alias tmk='tmux kill-session -t'
 
+# symfony
+if command -v symfony >/dev/null 2>&1; then
+  alias sf='symfony console'
+else
+  alias sf='php bin/console'
+fi
+alias sfcc='sf cache:clear'
+alias sfdr='sf debug:router'
+alias sfme='sf make:entity'
+alias sfps='sf server:start'
+alias sfss='sf server:start'
+alias sfssd='sf server:start -d'
+alias sfsst='sf server:stop'
+
+# Doctrine
+alias domd='sf doctrine:migrations:diff'
+alias dome-u='sf doctrine:migrations:execute --up'
+alias dome-d='sf doctrine:migrations:execute --down'
+alias domm='sf doctrine:migrations:migrate'
+alias domm-n='sf doctrine:migrations:migrate --no-interaction'
+alias domm-dry='sf doctrine:migrations:migrate --dry-run'
+alias doms='sf doctrine:migrations:status'
+alias dosv='sf doctrine:schema:validate'
+
 # ls
 alias ll='ls -lAh'
 
