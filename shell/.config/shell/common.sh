@@ -12,6 +12,9 @@ export VISUAL=nvim
 # ripgrep: rg errors on every run if this file is missing, so only set it once stowed
 [ -f "$HOME/.config/ripgrep/config" ] && export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
 
+# delta
+command -v delta >/dev/null 2>&1 && export GIT_PAGER=delta
+
 # nvim
 alias v='nvim'
 alias vim='nvim'

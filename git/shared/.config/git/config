@@ -28,6 +28,10 @@
     colorMoved = default
 [branch]
     sort = -committerdate
+[delta]
+    navigate = true
+    line-numbers = true
+    syntax-theme = ansi
 [push]
 	autoSetupRemote = true
 [alias]

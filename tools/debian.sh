@@ -18,5 +18,10 @@ if apt-cache show fastfetch >/dev/null 2>&1; then
   sudo apt install -y fastfetch
 fi
 
+# git-delta is in apt from Debian 13 (trixie)
+if apt-cache show git-delta >/dev/null 2>&1; then
+  sudo apt install -y git-delta
+fi
+
 # tmux plugin manager; press Ctrl-a I inside tmux to fetch the plugins
 [ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
