@@ -60,6 +60,7 @@ alias c='clear'
 alias myip='curl -s ifconfig.me'
 alias ff='fastfetch'
 alias fetch='fastfetch'
+alias grep='rg'
 
 # Debian installs bat as batcat
 if ! command -v bat >/dev/null 2>&1 && command -v batcat >/dev/null 2>&1; then
