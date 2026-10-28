@@ -72,6 +72,16 @@ if command -v bat >/dev/null 2>&1 || command -v batcat >/dev/null 2>&1; then
   alias cat='bat --paging=never'
 fi
 
+# clipboard
+if [ -n "$SSH_TTY" ]; then
+  # ssh case
+  clip() { printf '\033]52;c;%s\a' "$(base64 | tr -d '\n')" >/dev/tty; }
+elif [[ "$OSTYPE" == darwin* ]]; then
+  alias clip='pbcopy'
+else
+  alias clip='wl-copy'
+fi
+
 if [[ "$OSTYPE" == darwin* ]]; then
   alias ls='ls -G'
   alias ll='ls -lAGh'
