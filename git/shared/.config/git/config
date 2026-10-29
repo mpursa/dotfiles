@@ -14,9 +14,6 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
-# dotfiles repo: commit iTerm2 settings without window arrangements (see .gitattributes)
-[filter "iterm2"]
-    clean = tools/iterm2-settings
 
 [fetch]
     prune = true

@@ -1,9 +1,0 @@
-#!/usr/bin/env python3
-# Git clean filter for iterm2/*.plist (see .gitattributes): iTerm2 saves window
-# arrangements together with its settings; this keeps them out of Git.
-import plistlib
-import sys
-
-prefs = plistlib.loads(sys.stdin.buffer.read())
-prefs.pop("Window Arrangements", None)
-sys.stdout.buffer.write(plistlib.dumps(prefs))

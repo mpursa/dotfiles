@@ -15,5 +15,5 @@ brew "zoxide"
 brew "git-delta"
 brew "zsh-autosuggestions" if OS.mac?
 
-cask "iterm2" if OS.mac?
+cask "ghostty" if OS.mac?
 cask "font-jetbrains-mono-nerd-font"

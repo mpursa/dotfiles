@@ -12,7 +12,7 @@ Dotfiles linked into `~` with [GNU Stow](https://www.gnu.org/software/stow/).
 | `ssh`                        | SSH client config, no keys                            | all         |
 | `starship`, `ripgrep`, `bat` | prompt, search, `cat`                                 | all         |
 | `bin`                        | scripts for `~/.local/bin`, such as `dotfiles-update` | all         |
-| `iterm2`                     | iTerm2 settings, read by iTerm2 itself (not stowed)   | Mac         |
+| `ghostty`                    | Ghostty settings                                      | Mac         |
 | `tools`                      | installers for the tools above (not stowed)           | —           |
 
 Settings for one machine only go in untracked `.local` files, which load last so they win: `~/.zshrc.local` or `~/.bashrc.local`, `~/.config/git/config.local` and `~/.ssh/config.local`.
@@ -51,8 +51,6 @@ Settings for one machine only go in untracked `.local` files, which load last so
      echo "$(git config user.email) namespaces=\"git\" $(cat ~/.ssh/id_ed25519.pub)" >> git/shared/.config/git/allowed_signers
      ```
 
-   - Mac: in iTerm2, open Settings → General → Settings, turn on "Load settings from a custom folder or URL" with `~/dotfiles/iterm2`, and set "Save changes" to Manually.
-
 ## Update
 
 ```bash
@@ -64,5 +62,3 @@ It pulls the repo (`git pull --ff-only`) and runs `./install`, which relinks eve
 `dotfiles-update` doesn't install tools. When an update adds one to `tools/`, run the installer from step 2 again; it's safe to repeat.
 
 To add a package, create its folder with the paths as they are under `~`, add its name to `common` (or to the `mac` or `linux` line) in `install`, and run `./install`.
-
-iTerm2 saves its settings only when you click Save Now in Settings → General → Settings; then commit `iterm2/`. Saved window arrangements stay out of Git: `tools/iterm2-settings` removes them when the file is staged (see `.gitattributes`).

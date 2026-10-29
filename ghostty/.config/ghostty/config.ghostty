@@ -1,0 +1,20 @@
+copy-on-select = clipboard
+confirm-close-surface = false
+shell-integration-features = ssh-env,ssh-terminfo
+window-save-state = always
+mouse-hide-while-typing = true
+notify-on-command-finish = unfocused
+notify-on-command-finish-after = 5s
+auto-update = download
+cursor-style-blink = false
+
+window-padding-x = 8
+window-padding-y = 8
+window-padding-balance = true
+
+keybind = cmd+shift+t=prompt_tab_title
+title = ( °▽° )
+
+# MacOS specific
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = hidden

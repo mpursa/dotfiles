@@ -37,8 +37,6 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 export PATH=/opt/homebrew/opt/postgresql@18/bin:$PATH
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # shared with Linux
 if [ -f ~/.config/shell/common.sh ]; then
     source ~/.config/shell/common.sh

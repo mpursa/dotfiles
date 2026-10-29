@@ -19,7 +19,7 @@ chmod 700 ~/.ssh
 common=(nvim tmux shell ssh bin starship ripgrep bat)
 
 case "$target" in
-  mac)   packages=("${common[@]}" zsh);  git_identity=asm ;;
+  mac)   packages=("${common[@]}" zsh ghostty);  git_identity=asm ;;
   linux) packages=("${common[@]}" bash); git_identity=mpursa ;;
   *) echo "Usage: $0 [mac|linux]" >&2; exit 1 ;;
 esac
