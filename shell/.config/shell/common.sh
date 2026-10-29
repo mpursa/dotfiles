@@ -73,6 +73,7 @@ if command -v bat >/dev/null 2>&1 || command -v batcat >/dev/null 2>&1; then
 fi
 
 # clipboard
+unalias clip 2>/dev/null
 if [ -n "$SSH_TTY" ]; then
   # ssh case
   clip() { printf '\033]52;c;%s\a' "$(base64 | tr -d '\n')" >/dev/tty; }
