@@ -13,7 +13,7 @@ window-padding-y = 8
 window-padding-balance = true
 
 keybind = cmd+shift+t=prompt_tab_title
-title = ( °▽° )
+title = ( °▽° )  ( °▽° )  ( °▽° )
 
 # MacOS specific
 macos-titlebar-style = tabs
