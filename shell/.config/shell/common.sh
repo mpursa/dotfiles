@@ -61,6 +61,7 @@ alias myip='curl -s ifconfig.me'
 alias ff='fastfetch'
 alias fetch='fastfetch'
 alias grep='rg'
+alias qq='exit'
 
 # btop instead of top, where installed
 command -v btop >/dev/null 2>&1 && alias top='btop'
@@ -99,14 +100,30 @@ else
   alias clip='wl-copy'
 fi
 
+# Command confirmation
+_confirm() {
+  local reply
+  printf '%s %s? [y/N] ' "$1" "$(uname -n)"
+  read -r reply
+  [[ "$reply" == [yY]* ]]
+}
+
 if [[ "$OSTYPE" == darwin* ]]; then
   alias ls='ls -G'
   alias ll='ls -lAGh'
   alias ports='lsof -iTCP -sTCP:LISTEN -n -P'
+  # via System Events, so apps can save or cancel
+  off() { _confirm 'Shut down' && osascript -e 'tell app "System Events" to shut down'; }
+  restart() { _confirm 'Reboot' && osascript -e 'tell app "System Events" to restart'; }
 else
   alias ls='ls --color=auto'
   alias ports='ss -tulpn'
+  off() { _confirm 'Shut down' && sudo systemctl poweroff; }
+  restart() { _confirm 'Reboot' && sudo systemctl reboot; }
 fi
+
+# reboot asks too
+alias reboot='restart'
 
 # eza where installed; ls stays ls, as some flags differ (ls -t)
 if command -v eza >/dev/null 2>&1; then
