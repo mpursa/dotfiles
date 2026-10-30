@@ -16,7 +16,7 @@ fi
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 
-common=(nvim tmux shell ssh bin starship ripgrep bat)
+common=(nvim tmux shell ssh bin starship ripgrep bat tealdeer)
 
 case "$target" in
   mac)   packages=("${common[@]}" zsh ghostty);  git_identity=asm ;;
