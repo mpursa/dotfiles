@@ -65,6 +65,8 @@ alias qq='exit'
 
 # btop instead of top, where installed
 command -v btop >/dev/null 2>&1 && alias top='btop'
+# bduftop instead of df, where installed
+command -v duf >/dev/null 2>&1 && alias df='duf'
 
 # Debian installs bat as batcat
 if ! command -v bat >/dev/null 2>&1 && command -v batcat >/dev/null 2>&1; then
