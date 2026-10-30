@@ -17,6 +17,9 @@ window-padding-y = 8
 window-padding-balance = true
 
 keybind = cmd+shift+t=prompt_tab_title
+# ctrl+(shift+)tab: tmux next / previous window (prefix + n / p)
+keybind = ctrl+tab=text:\x01n
+keybind = ctrl+shift+tab=text:\x01p
 title = ( °▽° )  ( °▽° )  ( °▽° )
 
 # MacOS specific
