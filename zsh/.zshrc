@@ -57,6 +57,9 @@ command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init zsh)"
 # zsh-autosuggestions
 [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# zsh-syntax-highlighting: keep after every other widget
+[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # machine-specific, untracked: keep last so it can override
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
