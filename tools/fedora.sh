@@ -3,7 +3,7 @@
 set -e
 
 # curl comes with Fedora; asking for it can clash with curl-minimal
-sudo dnf install -y stow git git-lfs neovim tmux ripgrep bat fzf zoxide eza tealdeer keychain fd-find gh fastfetch git-delta wl-clipboard
+sudo dnf install -y stow git git-lfs neovim tmux ripgrep bat fzf zoxide eza tealdeer keychain fd-find gh btop du-dust duf glow fastfetch git-delta wl-clipboard
 
 # starship isn't in Fedora's repos, so use the official installer
 mkdir -p ~/.local/bin

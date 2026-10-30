@@ -62,6 +62,9 @@ alias ff='fastfetch'
 alias fetch='fastfetch'
 alias grep='rg'
 
+# btop instead of top, where installed
+command -v btop >/dev/null 2>&1 && alias top='btop'
+
 # Debian installs bat as batcat
 if ! command -v bat >/dev/null 2>&1 && command -v batcat >/dev/null 2>&1; then
   alias bat='batcat'

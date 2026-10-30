@@ -19,6 +19,12 @@ brew "git-delta"
 brew "fd"
 brew "lazygit"
 brew "gh"
+brew "btop"
+brew "dust"
+brew "duf"
+brew "lazydocker"
+brew "glow"
+brew "yazi"
 brew "zsh-autosuggestions" if OS.mac?
 brew "zsh-syntax-highlighting" if OS.mac?
 

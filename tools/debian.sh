@@ -3,7 +3,7 @@
 set -e
 
 sudo apt update
-sudo apt install -y stow git git-lfs neovim tmux ripgrep bat fzf zoxide keychain fd-find gh curl
+sudo apt install -y stow git git-lfs neovim tmux ripgrep bat fzf zoxide keychain fd-find gh btop duf curl
 
 # starship is in apt from Debian 13 (trixie); older releases use the official installer
 if apt-cache show starship >/dev/null 2>&1; then
@@ -40,6 +40,16 @@ fi
 # lazygit is in apt from Debian 13 (trixie)
 if apt-cache show lazygit >/dev/null 2>&1; then
   sudo apt install -y lazygit
+fi
+
+# dust is in apt from Debian 13 (trixie)
+if apt-cache show du-dust >/dev/null 2>&1; then
+  sudo apt install -y du-dust
+fi
+
+# glow is in apt from Debian 13 (trixie)
+if apt-cache show glow >/dev/null 2>&1; then
+  sudo apt install -y glow
 fi
 
 # tmux plugin manager; press Ctrl-a I inside tmux to fetch the plugins
