@@ -22,6 +22,11 @@ if apt-cache show fastfetch >/dev/null 2>&1; then
   sudo apt install -y fastfetch
 fi
 
+# eza is in apt from Debian 13 (trixie)
+if apt-cache show eza >/dev/null 2>&1; then
+  sudo apt install -y eza
+fi
+
 # git-delta is in apt from Debian 13 (trixie)
 if apt-cache show git-delta >/dev/null 2>&1; then
   sudo apt install -y git-delta

@@ -13,6 +13,7 @@ brew "fzf"
 brew "fastfetch" if OS.mac?
 brew "zoxide"
 brew "atuin"
+brew "eza"
 brew "git-delta"
 brew "fd"
 brew "lazygit"

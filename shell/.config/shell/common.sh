@@ -105,6 +105,12 @@ else
   alias ports='ss -tulpn'
 fi
 
+# eza where installed; ls stays ls, as some flags differ (ls -t)
+if command -v eza >/dev/null 2>&1; then
+  alias ll='eza -la --git --group-directories-first --icons=auto'
+  alias lt='eza --tree --level=2 --git-ignore --icons=auto'
+fi
+
 if [[ -n "$ZSH_VERSION" ]]; then
   alias reload='source ~/.zshrc'
 else
