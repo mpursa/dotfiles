@@ -72,6 +72,14 @@ if ! command -v fd >/dev/null 2>&1 && command -v fdfind >/dev/null 2>&1; then
   alias fd='fdfind'
 fi
 
+# fzf lists files with fd: hidden ones included, .gitignore respected
+fd_bin=$(command -v fdfind || command -v fd)
+if [ -n "$fd_bin" ]; then
+  export FZF_DEFAULT_COMMAND="$fd_bin --type f --hidden --exclude .git"
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
+unset fd_bin
+
 # cat through bat, only where bat is installed
 if command -v bat >/dev/null 2>&1 || command -v batcat >/dev/null 2>&1; then
   alias cat='bat --paging=never'
