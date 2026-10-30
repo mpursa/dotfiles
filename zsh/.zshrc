@@ -48,6 +48,9 @@ command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 # fzf
 [[ -t 0 ]] && command -v fzf >/dev/null 2>&1 && eval "$(fzf --zsh)"
 
+# atuin, after fzf so it gets Ctrl-R
+command -v atuin >/dev/null 2>&1 && eval "$(atuin init zsh --disable-up-arrow --disable-ai)"
+
 # zoxide
 command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init zsh)"
 

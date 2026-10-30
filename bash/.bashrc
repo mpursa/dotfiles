@@ -140,6 +140,9 @@ command -v starship >/dev/null 2>&1 && eval "$(starship init bash)"
 # fzf
 command -v fzf >/dev/null 2>&1 && eval "$(fzf --bash 2>/dev/null)"
 
+# atuin, after fzf so it gets Ctrl-R
+command -v atuin >/dev/null 2>&1 && eval "$(atuin init bash --disable-up-arrow --disable-ai)"
+
 # zoxide
 command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init bash)"
 

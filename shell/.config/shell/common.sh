@@ -67,6 +67,11 @@ if ! command -v bat >/dev/null 2>&1 && command -v batcat >/dev/null 2>&1; then
   alias bat='batcat'
 fi
 
+# Debian installs fd as fdfind
+if ! command -v fd >/dev/null 2>&1 && command -v fdfind >/dev/null 2>&1; then
+  alias fd='fdfind'
+fi
+
 # cat through bat, only where bat is installed
 if command -v bat >/dev/null 2>&1 || command -v batcat >/dev/null 2>&1; then
   alias cat='bat --paging=never'
