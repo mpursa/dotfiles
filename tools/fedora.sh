@@ -12,5 +12,10 @@ curl -sS https://starship.rs/install.sh | sh -s -- -y -b ~/.local/bin
 # atuin: dnf has it only in updates-testing
 curl --proto '=https' --tlsv1.2 -LsSf https://github.com/atuinsh/atuin/releases/latest/download/atuin-installer.sh | ATUIN_UNMANAGED_INSTALL="$HOME/.local/bin" sh
 
+sudo dnf install -y ffmpeg-free 7zip jq poppler-utils ImageMagick unzip
+curl -fLo /tmp/yazi.zip "https://github.com/sxyazi/yazi/releases/latest/download/yazi-$(uname -m)-unknown-linux-gnu.zip"
+unzip -ojq /tmp/yazi.zip '*/yazi' '*/ya' -d ~/.local/bin
+rm /tmp/yazi.zip
+
 # tmux plugin manager; press Ctrl-a I inside tmux to fetch the plugins
 [ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

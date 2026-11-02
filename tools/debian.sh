@@ -52,5 +52,19 @@ if apt-cache show glow >/dev/null 2>&1; then
   sudo apt install -y glow
 fi
 
+sudo apt install -y ffmpeg 7zip jq poppler-utils imagemagick
+case "$(uname -m)" in
+  x86_64|aarch64)
+    curl -fLo /tmp/yazi.deb "https://github.com/sxyazi/yazi/releases/latest/download/yazi-$(uname -m)-unknown-linux-gnu.deb"
+    sudo apt install -y /tmp/yazi.deb
+    rm /tmp/yazi.deb
+    ;;
+esac
+
+# resvg is in apt from Debian 13 (trixie)
+if apt-cache show resvg >/dev/null 2>&1; then
+  sudo apt install -y resvg
+fi
+
 # tmux plugin manager; press Ctrl-a I inside tmux to fetch the plugins
 [ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

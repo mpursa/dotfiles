@@ -25,6 +25,12 @@ brew "duf"
 brew "lazydocker"
 brew "glow"
 brew "yazi"
+brew "ffmpeg"
+brew "sevenzip"
+brew "jq"
+brew "poppler"
+brew "imagemagick"
+brew "resvg"
 brew "zsh-autosuggestions" if OS.mac?
 brew "zsh-syntax-highlighting" if OS.mac?
 
