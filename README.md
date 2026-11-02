@@ -20,7 +20,7 @@ Settings for one machine only go in untracked `.local` files, which load last so
 
 ## Install
 
-1. **Clone** to `~/dotfiles`, where `dotfiles-update` expects it. On a fresh Debian or Fedora, install `git` first.
+1. **Clone** to `~/dotfiles`, where `dotfiles-update` expects it. On a fresh Debian, Fedora or Arch, install `git` first.
 
    ```bash
    git clone git@github.com:mpursa/dotfiles.git ~/dotfiles
@@ -33,6 +33,7 @@ Settings for one machine only go in untracked `.local` files, which load last so
    - Mac or Bazzite, with [Homebrew](https://brew.sh): `brew bundle --file=tools/Brewfile`, then `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
    - Debian: `tools/debian.sh`
    - Fedora: `tools/fedora.sh`
+   - Arch: `tools/arch.sh`
 
 3. **Link** the dotfiles. Move `~/.gitconfig` aside first: Git reads it after the config in this repo, so its values would win.
 
