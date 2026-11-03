@@ -91,6 +91,15 @@ if command -v bat >/dev/null 2>&1 || command -v batcat >/dev/null 2>&1; then
   alias cat='bat --paging=never'
 fi
 
+# yazi, then cd to where it was on quit
+y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd < "$tmp"
+  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
+}
+
 # clipboard
 unalias clip 2>/dev/null
 if [ -n "$SSH_TTY" ]; then
