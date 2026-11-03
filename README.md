@@ -11,6 +11,8 @@ Dotfiles linked into `~` with [GNU Stow](https://www.gnu.org/software/stow/).
 | `git/asm` / `git/mpursa`     | Git name, email and commit signing: work / personal   | Mac / Linux |
 | `ssh`                        | SSH client config, no keys                            | all         |
 | `starship`, `ripgrep`, `bat` | prompt, search, `cat`                                 | all         |
+| `btop`                       | system monitor                                        | all         |
+| `yazi`                       | file manager                                          | all         |
 | `tealdeer`                   | `tldr` pages, updated automatically                   | all         |
 | `bin`                        | scripts for `~/.local/bin`, such as `dotfiles-update` | all         |
 | `ghostty`                    | Ghostty settings                                      | Mac         |
