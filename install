@@ -28,3 +28,6 @@ stow -R "${packages[@]}"
 stow -d git -R shared "$git_identity"
 
 echo "Stowed for $target: ${packages[*]} + git/shared git/$git_identity"
+
+# yazi flavors and plugins from package.toml
+if command -v ya >/dev/null; then ya pkg install; fi
