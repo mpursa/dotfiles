@@ -10,7 +10,14 @@ cursor-style-blink = false
 theme = TokyoNight Moon
 
 # Shaders
-custom-shader = ~/.config/ghostty/shaders/gradient-triangles.glsl
+# custom-shader = ~/.config/ghostty/shaders/gradient-triangles.glsl
+
+# Tinted glass look
+background = #16182f
+background-opacity = 0.75
+background-blur = 100
+# Keep nvim and tmux see-through too
+background-opacity-cells = true
 
 window-padding-x = 8
 window-padding-y = 8
