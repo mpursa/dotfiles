@@ -8,7 +8,7 @@ Dotfiles linked into `~` with [GNU Stow](https://www.gnu.org/software/stow/).
 | `shell`                      | aliases and environment shared by zsh and bash        | all         |
 | `zsh` / `bash`               | shell startup files                                   | Mac / Linux |
 | `git/shared`                 | Git config, global ignore, allowed signers            | all         |
-| `git/asm` / `git/mpursa`     | Git name, email and commit signing: work / personal   | Mac / Linux |
+| `git/asm` / `git/mpursa`     | Git name, email and commit signing: work / personal   | one each    |
 | `ssh`                        | SSH client config, no keys                            | all         |
 | `starship`, `ripgrep`, `bat` | prompt, search, `cat`                                 | all         |
 | `btop`                       | system monitor                                        | all         |
@@ -45,7 +45,10 @@ Settings for one machine only go in untracked `.local` files, which load last so
    ```bash
    test -f ~/.gitconfig && mv ~/.gitconfig ~/.gitconfig.bak
    ./install            # detects the OS; ./install mac or ./install linux to choose
+   ./install --git=asm  # git identity: a folder in git/, default mpursa
    ```
+
+   The identity sticks: later runs, and `dotfiles-update`, keep the one already linked until you pass another `--git=`. `./setup` takes `--git=` too.
 
    Stow never overwrites a real file. If `./install` stops and names one, move that file aside (`mv ~/.bashrc ~/.bashrc.bak`) and run it again.
 

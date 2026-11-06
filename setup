@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 # Full machine setup
-# Usage: ./setup [--optional]
+# Usage: ./setup [--optional] [--git=NAME]
 set -euo pipefail
 cd "$(dirname "$0")"
 
 optional=false
+git_arg=""
 for arg in "$@"; do
   case "$arg" in
     --optional) optional=true ;;
+    --git=*) git_arg="$arg" ;;
     -h|--help) sed -n '2,3p' "$0"; exit 0 ;;
     *) echo "Unknown option: $arg" >&2; exit 1 ;;
   esac
@@ -62,7 +64,7 @@ for f in ~/.gitconfig "$shell_rc"; do
     echo "Moved $f to $f.bak"
   fi
 done
-./install
+./install ${git_arg:+"$git_arg"}
 
 echo "==> tmux plugins"
 ~/.tmux/plugins/tpm/bin/install_plugins

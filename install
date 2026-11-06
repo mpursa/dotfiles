@@ -1,9 +1,19 @@
 #!/usr/bin/env bash
-# Usage: ./install [mac|linux]   (default: detected from uname)
+# Usage: ./install [mac|linux] [--git=NAME]
+#   OS: detected from uname. NAME: a folder in git/; defaults to the identity already linked, else mpursa
 set -euo pipefail
 cd "$(dirname "$0")"
 
-target="${1:-}"
+target=""
+identity=""
+for arg in "$@"; do
+  case "$arg" in
+    mac|linux) target="$arg" ;;
+    --git=*) identity="${arg#--git=}" ;;
+    *) echo "Usage: $0 [mac|linux] [--git=NAME]" >&2; exit 1 ;;
+  esac
+done
+
 if [ -z "$target" ]; then
   case "$(uname -s)" in
     Darwin) target=mac ;;
@@ -19,15 +29,29 @@ chmod 700 ~/.ssh
 common=(nvim tmux shell ssh bin starship ripgrep bat tealdeer btop yazi)
 
 case "$target" in
-  mac)   packages=("${common[@]}" zsh ghostty);  git_identity=asm ;;
-  linux) packages=("${common[@]}" bash); git_identity=mpursa ;;
-  *) echo "Usage: $0 [mac|linux]" >&2; exit 1 ;;
+  mac)   packages=("${common[@]}" zsh ghostty) ;;
+  linux) packages=("${common[@]}" bash) ;;
 esac
 
-stow -R "${packages[@]}"
-stow -d git -R shared "$git_identity"
+# git identity: --git=NAME, else the one already linked, else mpursa
+current=""
+if [[ "$(readlink ~/.config/git/identity 2>/dev/null || true)" =~ /git/([^/]+)/\.config/git/identity$ ]]; then
+  current="${BASH_REMATCH[1]}"
+fi
+identity="${identity:-${current:-mpursa}}"
+if [ "$identity" = shared ] || [ ! -d "git/$identity" ]; then
+  echo "No git identity '$identity'; pick one of: $(ls git | grep -vx shared | tr '\n' ' ')" >&2
+  exit 1
+fi
 
-echo "Stowed for $target: ${packages[*]} + git/shared git/$git_identity"
+stow -R "${packages[@]}"
+# both identities provide the same file, so unlink the old one first
+if [ -n "$current" ] && [ "$current" != "$identity" ]; then
+  stow -d git -D "$current"
+fi
+stow -d git -R shared "$identity"
+
+echo "Stowed for $target: ${packages[*]} + git/shared git/$identity"
 
 # yazi flavors and plugins from package.toml
 if command -v ya >/dev/null; then ya pkg install; fi
