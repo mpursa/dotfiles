@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+# Full machine setup
+# Usage: ./setup [--optional]
+set -euo pipefail
+cd "$(dirname "$0")"
+
+optional=false
+for arg in "$@"; do
+  case "$arg" in
+    --optional) optional=true ;;
+    -h|--help) sed -n '2,3p' "$0"; exit 0 ;;
+    *) echo "Unknown option: $arg" >&2; exit 1 ;;
+  esac
+done
+
+# Which installer in tools/ to use
+if [ "$(uname -s)" = Darwin ]; then
+  system=mac
+else
+  . /etc/os-release
+  case " $ID ${ID_LIKE:-} " in
+    *" bazzite "*) system=bazzite ;;
+    *" debian "*|*" ubuntu "*) system=debian ;;
+    *" fedora "*) system=fedora ;;
+    *" arch "*) system=arch ;;
+    *) echo "No installer for ${PRETTY_NAME:-$ID} in tools/" >&2; exit 1 ;;
+  esac
+fi
+echo "==> Setting up for $system"
+
+if [ "$system" = mac ] && ! command -v brew >/dev/null; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  brew_bin=/opt/homebrew/bin/brew
+  [ -x "$brew_bin" ] || brew_bin=/usr/local/bin/brew
+  eval "$("$brew_bin" shellenv)"
+  grep -qs 'brew shellenv' ~/.zprofile || echo "eval \"\$($brew_bin shellenv)\"" >> ~/.zprofile
+fi
+
+echo "==> Tools"
+case "$system" in
+  mac|bazzite)
+    brew bundle --file=tools/Brewfile
+    [ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ;;
+  *) "tools/$system.sh" ;;
+esac
+
+if $optional; then
+  echo "==> Optional tools"
+  case "$system" in
+    mac|bazzite) brew bundle --file=tools/optional/Brewfile ;;
+    *) "tools/optional/$system.sh" ;;
+  esac
+fi
+
+echo "==> Dotfiles"
+# Stow won't replace real files!
+[ "$system" = mac ] && shell_rc=~/.zshrc || shell_rc=~/.bashrc
+for f in ~/.gitconfig "$shell_rc"; do
+  if [ -f "$f" ] && [ ! -L "$f" ]; then
+    mv "$f" "$f.bak"
+    echo "Moved $f to $f.bak"
+  fi
+done
+./install
+
+echo "==> tmux plugins"
+~/.tmux/plugins/tpm/bin/install_plugins
+
+cat <<'EOF'
+
+Done. Left to do by hand:
+  - Open a new terminal.
+  - atuin import auto        (load your shell history into atuin)
+  - gh auth login            (if you use GitHub from this machine)
+  - Add this machine's signing key to git/shared/.config/git/allowed_signers (see README)
+EOF
