@@ -36,6 +36,7 @@ Settings for one machine only go in untracked `.local` files, which load last so
    - Debian: `tools/debian.sh`
    - Fedora: `tools/fedora.sh`
    - Arch: `tools/arch.sh`
+   - Optional, only where needed (VS Code): `brew bundle --file=tools/optional/Brewfile` on the Mac, `tools/optional/debian.sh`, `fedora.sh` or `arch.sh` on Linux
 
 3. **Link** the dotfiles. Move `~/.gitconfig` aside first: Git reads it after the config in this repo, so its values would win.
 

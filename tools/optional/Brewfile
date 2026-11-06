@@ -1,0 +1,3 @@
+# Optional tools, for the Mac: brew bundle --file=~/dotfiles/tools/optional/Brewfile
+
+cask "visual-studio-code" if OS.mac?
