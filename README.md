@@ -15,7 +15,8 @@ Dotfiles linked into `~` with [GNU Stow](https://www.gnu.org/software/stow/).
 | `yazi`                       | file manager                                          | all         |
 | `tealdeer`                   | `tldr` pages, updated automatically                   | all         |
 | `bin`                        | scripts for `~/.local/bin`, such as `dotfiles-update` | all         |
-| `ghostty`                    | Ghostty settings                                      | Mac         |
+| `ghostty`                    | Ghostty settings                                      | Mac / Linux |
+| `karabiner`                  | Karabiner rules: Linux-style Ctrl, Alt+Tab            | Mac         |
 | `tools`                      | installers for the tools above (not stowed)           | —           |
 
 Settings for one machine only go in untracked `.local` files, which load last so they win: `~/.zshrc.local` or `~/.bashrc.local`, `~/.config/git/config.local` and `~/.ssh/config.local`.
@@ -55,6 +56,7 @@ Settings for one machine only go in untracked `.local` files, which load last so
 4. **Finish:**
    - Open a new terminal.
    - In tmux, press `Ctrl-a` then `I` (capital i) to install the plugins.
+   - On a Mac, turn on the Karabiner rules: in Karabiner-Elements, open Complex Modifications, then Add predefined rule, and click Enable All under "Windows-style Ctrl".
    - Add the machine's key to the allowed signers, so Git can verify the commits it signs, then commit the change:
 
      ```bash

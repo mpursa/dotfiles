@@ -35,4 +35,5 @@ brew "zsh-autosuggestions" if OS.mac?
 brew "zsh-syntax-highlighting" if OS.mac?
 
 cask "ghostty" if OS.mac?
+cask "karabiner-elements" if OS.mac?
 cask "font-jetbrains-mono-nerd-font"

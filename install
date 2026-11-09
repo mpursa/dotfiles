@@ -29,7 +29,7 @@ chmod 700 ~/.ssh
 common=(nvim tmux shell ssh bin starship ripgrep bat tealdeer btop yazi)
 
 case "$target" in
-  mac)   packages=("${common[@]}" zsh ghostty) ;;
+  mac)   packages=("${common[@]}" zsh ghostty karabiner) ;;
   linux) packages=("${common[@]}" bash) ;;
 esac
 
