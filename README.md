@@ -19,7 +19,7 @@ Dotfiles linked into `~` with [GNU Stow](https://www.gnu.org/software/stow/).
 | `karabiner`                  | Karabiner rules: Linux-style Ctrl, Alt+Tab            | Mac         |
 | `tools`                      | installers for the tools above (not stowed)           | —           |
 
-Settings for one machine only go in untracked `.local` files, which load last so they win: `~/.zshrc.local` or `~/.bashrc.local`, `~/.config/git/config.local` and `~/.ssh/config.local`.
+Settings for one machine only go in untracked `.local` files, which load last so they win: `~/.zshrc.local` or `~/.bashrc.local`, `~/.config/git/config.local`, `~/.ssh/config.local`, `~/.tmux.conf.local`, `~/.config/nvim/init.local.lua` and `~/.config/ghostty/config.ghostty.local`.
 
 ## Install
 

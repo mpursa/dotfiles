@@ -34,3 +34,6 @@ macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 keybind = global:cmd+shift+space=toggle_quick_terminal
 quick-terminal-autohide = false
+
+# machine-specific, untracked
+config-file = ?config.ghostty.local

@@ -138,3 +138,7 @@ map("x", ">", ">gv")
 
 -- Copy to the system clipboard
 map({ "n", "x" }, "<leader>y", '"+y', { desc = "Copy to system clipboard" })
+
+-- Machine-specific, untracked: keep last --------------------------------
+local local_config = vim.fn.stdpath("config") .. "/init.local.lua"
+if vim.fn.filereadable(local_config) == 1 then dofile(local_config) end
