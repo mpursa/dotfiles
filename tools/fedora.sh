@@ -17,5 +17,10 @@ curl -fLo /tmp/yazi.zip "https://github.com/sxyazi/yazi/releases/latest/download
 unzip -ojq /tmp/yazi.zip '*/yazi' '*/ya' -d ~/.local/bin
 rm /tmp/yazi.zip
 
+# ble.sh: autosuggestions and syntax highlighting for bash
+curl -fsSL https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz | tar xJf - -C /tmp
+bash /tmp/ble-nightly/ble.sh --install ~/.local/share
+rm -rf /tmp/ble-nightly
+
 # tmux plugin manager; press Ctrl-a I inside tmux to fetch the plugins
 [ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

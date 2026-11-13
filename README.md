@@ -35,7 +35,7 @@ Settings for one machine only go in untracked `.local` files, which load last so
    **Quick setup:** `./setup` does steps 2 to 4 for you (Mac, Bazzite, Debian, Fedora, Arch), installing Homebrew first on a Mac that lacks it. Add `--optional` for the optional tools too. It moves a stock `~/.gitconfig` and `~/.zshrc` or `~/.bashrc` aside as `.bak`, and lists what's left to do by hand at the end. The steps below are what it runs.
 
 2. **Tools:**
-   - Mac or Bazzite, with [Homebrew](https://brew.sh): `brew bundle --file=tools/Brewfile`, then `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+   - Mac or Bazzite, with [Homebrew](https://brew.sh): `brew bundle --file=tools/Brewfile`, then `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`; on Bazzite also [ble.sh](https://github.com/akinomyoga/ble.sh) (the three lines in `setup`)
    - Debian: `tools/debian.sh`
    - Fedora: `tools/fedora.sh`
    - Arch: `tools/arch.sh`

@@ -43,6 +43,12 @@ case "$system" in
   mac|bazzite)
     brew bundle --file=tools/Brewfile
     [ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    # ble.sh isn't in brew; bash only.
+    if [ "$system" = bazzite ]; then
+      curl -fsSL https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz | tar xJf - -C /tmp
+      bash /tmp/ble-nightly/ble.sh --install ~/.local/share
+      rm -rf /tmp/ble-nightly
+    fi
     ;;
   *) "tools/$system.sh" ;;
 esac

@@ -3,7 +3,7 @@
 set -e
 
 sudo apt update
-sudo apt install -y stow git git-lfs neovim tmux ripgrep bat fzf zoxide keychain fd-find gh btop duf curl
+sudo apt install -y stow git git-lfs neovim tmux ripgrep bat fzf zoxide keychain fd-find gh btop duf curl xz-utils
 
 # starship is in apt from Debian 13 (trixie); older releases use the official installer
 if apt-cache show starship >/dev/null 2>&1; then
@@ -65,6 +65,11 @@ esac
 if apt-cache show resvg >/dev/null 2>&1; then
   sudo apt install -y resvg
 fi
+
+# ble.sh: autosuggestions and syntax highlighting for bash
+curl -fsSL https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz | tar xJf - -C /tmp
+bash /tmp/ble-nightly/ble.sh --install ~/.local/share
+rm -rf /tmp/ble-nightly
 
 # tmux plugin manager; press Ctrl-a I inside tmux to fetch the plugins
 [ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

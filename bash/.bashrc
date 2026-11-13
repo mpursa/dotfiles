@@ -8,6 +8,9 @@ case $- in
       *) return;;
 esac
 
+# ble.sh: autosuggestions and syntax highlighting; attached at the end
+[ -f ~/.local/share/blesh/ble.sh ] && source -- ~/.local/share/blesh/ble.sh --attach=none
+
 # Fedora: load the system bashrc (Debian's bash does this by itself)
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -150,3 +153,6 @@ command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init bash)"
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
+
+# ble.sh: keep at the very end
+[[ ! ${BLE_VERSION-} ]] || ble-attach
