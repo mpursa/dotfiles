@@ -1,3 +1,4 @@
+format = "${env_var.SSH_CONNECTION}$all"
 add_newline = true
 
 [username]
@@ -6,8 +7,11 @@ format = "[$user]($style)@"
 
 [hostname]
 ssh_only = false
-format = "[$ssh_symbol$hostname]($style) in "
+format = "[$hostname]($style) in "
 
 [directory]
 truncation_length = 0
 truncate_to_repo = false
+
+[env_var.SSH_CONNECTION]
+format = "🌐 "
