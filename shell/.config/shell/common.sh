@@ -142,6 +142,11 @@ if command -v eza >/dev/null 2>&1; then
   alias lt='eza --tree --level=2 --git-ignore --icons=auto'
 fi
 
+# cd, then list directory
+exp() {
+  if command -v z >/dev/null 2>&1; then z "$@"; else cd "${1:-$HOME}"; fi && ll
+}
+
 if [[ -n "$ZSH_VERSION" ]]; then
   alias reload='source ~/.zshrc'
 else
