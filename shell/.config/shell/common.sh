@@ -144,7 +144,7 @@ fi
 
 # cd, then list directory
 exp() {
-  if command -v z >/dev/null 2>&1; then z "$@"; else cd "${1:-$HOME}"; fi && ll
+  if command -v z >/dev/null 2>&1; then z "${@:-.}"; else cd "${1:-.}"; fi && ll
 }
 
 if [[ -n "$ZSH_VERSION" ]]; then
